@@ -1,0 +1,24 @@
+[data-interactive-container] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-interactive-container] > svg,
+[data-interactive-container] > img {
+  position: absolute;
+}
+
+[data-interactive-container] > img {
+  z-index: -1;
+  object-fit: contain;
+  width: 100%;
+}
+
+[data-interactive-container] [data-emittor-inactive] * {
+  fill: gray;
+  cursor: initial;
+}
+
+svg * {
+  transition: opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

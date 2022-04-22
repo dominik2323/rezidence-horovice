@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+svg * {
+  cursor: pointer;
+}
+
+.interactive-el {
+  position: relative;
+}
+
+.hero {
+  height: 90vh;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  align-items: start;
+}
+
+.hero.apartments {
+  grid-auto-flow: unset;
+  grid-template-columns: 40% 60%;
+}
+
+.label-floors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: white;
+  padding: 0 30px;
+}
+.label-floors .floor-name {
+  font-size: 21px;
+}
+
+.label-aerial {
+  background-color: white;
+  display: inline;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  padding: 0.25em;
+  font-size: 10px;
+}
+
+.sb {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  height: 50px;
+  bottom: 15px;
+  left: 15px;
+  pointer-events: none;
+}
+.sb__anim {
+  transition: transform 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.sb__anim__inner {
+  height: 50px;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 25px;
+}
+.sb__anim__inner span {
+  color: white;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.sb__anim__inner img {
+  height: 30px;
+  width: auto;
+  display: block;
+  margin-right: 10px;
+}
+.sb__anim__inner .number {
+  background-color: #dddc00;
+  color: #214f77;
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  border-radius: 50%;
+  font-size: 15px;
+}
+.sb__anim__inner .header {
+  display: block;
+  font-weight: bold;
+}
+.obj-label {
+  position: absolute;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.obj-label.default {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.obj-label.floors {
+  background: transparent;
+  color: white;
+  font-size: 21px;
+}

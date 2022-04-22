@@ -1,0 +1,9 @@
+<svg id="B_1PP" data-name="B/1PP" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="none"/>
+  <g id="2" data-name="2">
+    <polygon id="emittor" points="459.549 624.523 753.945 624.523 753.945 383.085 655.149 383.085 655.149 380.835 459.653 380.835 459.549 624.523" fill="#dddc00" opacity="0.45"/>
+  </g>
+  <g id="1" data-name="1">
+    <polygon id="emittor-2" data-name="emittor" points="753.945 143.147 459.653 143.147 459.653 386.835 655.149 386.835 655.096 384.585 753.945 384.585 753.945 143.147" fill="#dddc00" opacity="0.45"/>
+  </g>
+</svg>
