@@ -20,6 +20,7 @@ function aerialInitial(emittor) {
   }
 
   label.classList.add("obj-label", "default");
+  label.setAttribute("data-label-to", id);
   label.innerText = displayName;
   setStyleTo(label, {
     top: `${pos.y + pos.height / 2 - parentPos.y}px`,

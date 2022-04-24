@@ -109,8 +109,13 @@
     </script>
     <script type="text/javascript" src="./public/js/lib.js" defer></script>
     <script type="module" src="./public/js/pages/floors.js"></script>
+    <script
+      type="text/javascript"
+      src="./public/js/helpers/onResize.js"
+    ></script>
     <script type="module">
       addEventListener("DOMContentLoaded", (event) => {
+        window.onresize = onResize;
         interactiveData.forEach(window.initInteractive);
       });
     </script>

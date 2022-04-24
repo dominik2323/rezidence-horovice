@@ -7,7 +7,6 @@ import strings from "../../consts/strings.js";
 
 function floorInitial(emittor) {
   const id = emittor.dataset.name;
-  console.log(id, data);
   const container = this.containerElement;
   const sbDefaultContent = container.querySelector(SB_DEFAULT_CONTENT);
   const objLabel = document.createElement("div");

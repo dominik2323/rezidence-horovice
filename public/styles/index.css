@@ -190,3 +190,18 @@ h1.main-header {
   color: white;
   font-size: 21px;
 }
+
+@media screen and (max-width: 1200px) {
+  .hero.aerial {
+    grid-template-columns: 40% auto;
+  }
+  .hero.apartments {
+    grid-template-columns: 40% 60%;
+  }
+  .hero.floors {
+    grid-template-columns: 40% 60%;
+  }
+  h1.main-header {
+    font-size: 40px;
+  }
+}
