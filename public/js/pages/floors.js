@@ -3,8 +3,10 @@ import aerial from "../components/aerial/index.js";
 import getUrlParams from "../helpers/getUrlParams.js";
 
 const params = getUrlParams();
+const building = params.building || ``;
+const buildingType = building.match(/^\w/i)[0];
 
-const floorsPageData = [
+const interactiveData = [
   {
     containerElement: document.querySelector(
       "[data-interactive-container-aerial]"
@@ -20,8 +22,8 @@ const floorsPageData = [
     containerElement: document.querySelector(
       "[data-interactive-container-floors]"
     ),
-    backplateUrl: "/public/assets/floors/floors.png",
-    svgUrl: `public/assets/floors/floors.svg`,
+    backplateUrl: `/public/assets/floors/${buildingType}.png`,
+    svgUrl: `public/assets/floors/${buildingType}.svg`,
     defaultHoverId: null,
     initial: floors.floorInitial,
     onClick: floors.floorOnClick,
@@ -29,4 +31,4 @@ const floorsPageData = [
   },
 ];
 
-window.floorsPageData = floorsPageData;
+window.interactiveData = interactiveData;

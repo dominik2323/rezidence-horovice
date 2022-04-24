@@ -6,6 +6,8 @@
 [data-interactive-container] > svg,
 [data-interactive-container] > img {
   position: absolute;
+  top: 0;
+  left: 0;
 }
 
 [data-interactive-container] > img {

@@ -1,25 +1,28 @@
 import {
   SB_HOVER_CONTENT,
-  SB_HOVER_NUMBER,
+  SB_HOVER_MAIN,
   DEFAULT_EMITTOR,
 } from "../../consts/selectors.js";
 import strings from "../../consts/strings.js";
 
 function floorOnHover(hovering, e, emittor) {
-  const id = emittor.id;
+  const id = emittor.dataset.name;
   const container = this.containerElement;
-  const label = document.querySelector(`[data-label-to="${emittor.id}"]`);
+  const label = document.querySelector(`[data-label-to="${id}"]`);
   const sbHover = container.querySelector("[data-sb-anim]");
   const avaibleApartments = data.floors[id].avaible;
 
   sbHover.querySelector(SB_HOVER_CONTENT).innerHTML =
     strings.avaibleApartments(avaibleApartments);
-  sbHover.querySelector(SB_HOVER_NUMBER).innerHTML = avaibleApartments;
+  sbHover.querySelector(SB_HOVER_MAIN).innerHTML = avaibleApartments;
+  setStyleTo(sbHover.querySelector(SB_HOVER_MAIN), {
+    display: avaibleApartments === 0 ? `none` : `inline-flex`,
+  });
 
   if (this.defaultHoverId) {
     const defaultEmittor = container.querySelector(DEFAULT_EMITTOR);
     const defaultEmittorLabel = container.querySelector(
-      `[data-label-to="${defaultEmittor.id}"]`
+      `[data-label-to="${defaultEmittor.dataset.name}"]`
     );
 
     setStyleTo(defaultEmittor, {
@@ -43,6 +46,10 @@ function floorOnHover(hovering, e, emittor) {
   });
 
   if (!hovering && this.defaultHoverId) {
+    const defaultEmittor = container.querySelector(DEFAULT_EMITTOR);
+    const defaultEmittorLabel = container.querySelector(
+      `[data-label-to="${defaultEmittor.dataset.name}"]`
+    );
     setStyleTo(defaultEmittor, {
       opacity: "1",
     });

@@ -1,20 +1,24 @@
 import {
   SB_HOVER_CONTENT,
-  SB_HOVER_NUMBER,
+  SB_HOVER_MAIN,
   SB_ANIM,
   DEFAULT_EMITTOR,
 } from "../../consts/selectors.js";
 import strings from "../../consts/strings.js";
 
 function aerialOnHover(hovering, e, emittor) {
-  const id = emittor.id;
+  const id = emittor.dataset.name;
   const { displayName, avaible } = data.aerial[id];
   const container = this.containerElement;
-  const sbNumber = container.querySelector(SB_HOVER_NUMBER);
+  const sbNumber = container.querySelector(SB_HOVER_MAIN);
   const sbContent = container.querySelector(SB_HOVER_CONTENT);
+  const defaultEmittor = container.querySelector(DEFAULT_EMITTOR);
 
   sbNumber.innerHTML = avaible;
   sbContent.innerHTML = strings.avaibleApartments(avaible);
+  setStyleTo(sbNumber, {
+    display: avaible === 0 ? `none` : `inline-flex`,
+  });
 
   setStyleTo(emittor, {
     opacity: hovering ? `1` : `0`,
@@ -28,7 +32,6 @@ function aerialOnHover(hovering, e, emittor) {
   }
 
   if (this.defaultHoverId) {
-    const defaultEmittor = container.querySelector(DEFAULT_EMITTOR);
     setStyleTo(defaultEmittor, {
       opacity: "0",
     });
@@ -40,6 +43,11 @@ function aerialOnHover(hovering, e, emittor) {
     setStyleTo(defaultEmittor, {
       opacity: "1",
     });
+
+    setStyleTo(sbNumber, {
+      display: `inline-flex`,
+    });
+
     sbNumber.innerHTML = defaultEmittorData.avaible;
     sbContent.innerHTML = strings.avaibleApartments(defaultEmittorData);
   }

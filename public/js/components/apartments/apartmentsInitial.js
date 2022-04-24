@@ -7,13 +7,13 @@ function apartmentsInitial(emittor) {
   const objLabel = document.createElement("div");
   const pos = emittor.getBoundingClientRect();
   const parentPos = emittor.parentElement.getBoundingClientRect();
-  const { avaible, displayName } = data.apartment[emittor.id];
+  const { avaible, displayName } = data.apartment[emittor.dataset.name];
 
   sbDefaultContent.innerHTML = strings.selectApartment;
 
   objLabel.classList.add(`obj-label`, `floors`);
   objLabel.innerText = displayName;
-  objLabel.setAttribute("data-label-to", emittor.id);
+  objLabel.setAttribute("data-label-to", emittor.dataset.name);
   setStyleTo(objLabel, {
     top: `${pos.y + pos.height / 2 - parentPos.y}px`,
     left: `${pos.x + pos.width / 2 - parentPos.x}px`,

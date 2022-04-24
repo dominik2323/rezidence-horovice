@@ -1,12 +1,12 @@
 import {
   SB_HOVER_CONTENT,
-  SB_HOVER_NUMBER,
+  SB_HOVER_MAIN,
   SB_DEFAULT_CONTENT,
 } from "../../consts/selectors.js";
 import strings from "../../consts/strings.js";
 
 function aerialInitial(emittor) {
-  const id = emittor.id;
+  const id = emittor.dataset.name;
   const { avaible, displayName } = data.aerial[id];
   const label = document.createElement("div");
   const polygon = emittor.querySelector("polygon");
@@ -37,7 +37,7 @@ function aerialInitial(emittor) {
 
   if (isDefaultEmittor) {
     emittor.setAttribute("data-default-emittor", "");
-    container.querySelector(SB_HOVER_NUMBER).innerHTML = avaible;
+    container.querySelector(SB_HOVER_MAIN).innerHTML = avaible;
     container.querySelector(SB_HOVER_CONTENT).innerHTML =
       strings.avaibleApartments(avaible);
     setStyleTo(emittor, { opacity: 1 });

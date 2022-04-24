@@ -1,15 +1,25 @@
-import { SB_HOVER_CONTENT, SB_HOVER_HEADER } from "../../consts/selectors.js";
+import { SB_HOVER_CONTENT, SB_HOVER_MAIN } from "../../consts/selectors.js";
+import strings from "../../consts/strings.js";
 
 function apartmentsOnHover(hovering, e, emittor) {
-  const id = emittor.id;
+  const id = emittor.dataset.name;
   const container = this.containerElement;
-  const label = document.querySelector(`[data-label-to="${emittor.id}"]`);
+  const label = document.querySelector(`[data-label-to="${id}"]`);
   const sbHover = container.querySelector("[data-sb-anim]");
   const emittorData = data.apartment[id];
-  const sbHoverHeader = container.querySelector(SB_HOVER_HEADER);
+  const sbHoverHeader = container.querySelector(SB_HOVER_MAIN);
   const sbHoverContent = container.querySelector(SB_HOVER_CONTENT);
+  const unavaibleString = `vyprodáno\u2002-\u2002`;
 
-  sbHoverContent.innerHTML = `${emittorData.dispositions}\u2002-\u2002${emittorData.area}`;
+  const isUnavaible = !emittorData.avaible;
+
+  sbHoverHeader.classList.remove("inactive");
+  if (isUnavaible) {
+    sbHoverHeader.classList.add("inactive");
+  }
+  sbHoverContent.innerHTML = `${isUnavaible ? unavaibleString : ``}${
+    emittorData.dispositions
+  }\u2002-\u2002${emittorData.area}`;
   sbHoverHeader.innerHTML = emittorData.displayName;
 
   setStyleTo(label, {

@@ -7,27 +7,43 @@
     <title>Document</title>
     <link rel="stylesheet" href="./public/styles/index.css" />
     <link rel="stylesheet" href="./public/styles/interactive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="hero apartments">
-      <div class="interactive-el">
-        <div
-          class="interactive-el__inner"
-          data-interactive-container
-          data-interactive-container-floors
-        >
-          <div class="sb">
-            <div class="sb__anim" data-sb-anim>
-              <div class="sb__anim__inner">
-                <div data-sb-hover>
-                  <span class="number" data-sb-hover-number></span>
-                  <span class="content" data-sb-hover-content></span>
+      <div class="hero-left">
+        <div class="interactive-el">
+          <div
+            class="interactive-el__inner"
+            data-interactive-container
+            data-interactive-container-floors
+          >
+            <div class="sb">
+              <div class="sb__anim" data-sb-anim>
+                <div class="sb__anim__inner">
+                  <div data-sb-hover>
+                    <span class="main" data-sb-hover-main></span>
+                    <span class="content" data-sb-hover-content></span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="claim-wrapper">
+          <span class="back" data-back-button="/floors.html">
+            <img src="public/assets/arrow-back.svg" alt="" />
+            <span>Výběr patra</span>
+          </span>
+          <h1 class="main-header">Vyberte si<br />byt na patře</h1>
+        </div>
       </div>
+
       <div class="interactive-el">
         <div
           class="interactive-el__inner"
@@ -42,7 +58,7 @@
               </div>
               <div class="sb__anim__inner">
                 <div data-sb-hover>
-                  <span class="header" data-sb-hover-header></span>
+                  <span class="main header" data-sb-hover-main></span>
                   <span class="content" data-sb-hover-content></span>
                 </div>
               </div>
@@ -51,33 +67,81 @@
         </div>
       </div>
     </div>
-    <script>
-      const data = {
-        apartment: {
-          1: {
-            displayName: `A1.01`,
-            avaible: true,
-            dispositions: "1+kk",
-            area: "39,2 m2",
-          },
-          2: {
-            displayName: `A1.02`,
-            avaible: false,
-            dispositions: "2+kk",
-            area: "13,9 m2",
-          },
-        },
-        floors: {
+    <script src="./public/js/helpers/handleBackButton.js"></script>
+    <script type="module">
+      import getUrlParams from "./public/js/helpers/getUrlParams.js";
+      const params = getUrlParams();
+      const building = params.building || ``;
+      const buildingType = building.match(/^\w/i)[0];
+
+      const floorData = {
+        a: {
+          "1pp": { displayName: "1PP", avaible: 8 },
           "1np": { displayName: "1NP", avaible: 8 },
           "2np": { displayName: "2NP", avaible: 10 },
           "3np": { displayName: "3NP", avaible: 0 },
           "4np": { displayName: "4NP", avaible: 4 },
           "5np": { displayName: "5NP", avaible: 30 },
           "6np": { displayName: "6NP", avaible: 99 },
-          "7np": { displayName: "7NP", avaible: 3 },
-          "8np": { displayName: "8NP", avaible: 0 },
+        },
+        b: {
+          "1np": { displayName: "1NP", avaible: 8 },
+          "2np": { displayName: "2NP", avaible: 10 },
+          "3np": { displayName: "3NP", avaible: 0 },
+          "4np": { displayName: "4NP", avaible: 4 },
+          "5np": { displayName: "5NP", avaible: 30 },
+          "6np": { displayName: "6NP", avaible: 99 },
         },
       };
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * (max + 1));
+      }
+
+      const apartmentIds = [
+        "01",
+        "02",
+        "11",
+        "12",
+        "13",
+        "21",
+        "22",
+        "23",
+        "24",
+        "31",
+        "32",
+        "33",
+        "34",
+        "41",
+        "42",
+        "43",
+        "44",
+        "51",
+        "52",
+        "53",
+        "61",
+        "62",
+      ];
+      const apartmentData = apartmentIds.reduce((acc, curr, i) => {
+        return {
+          ...acc,
+          [curr]: {
+            displayName: `A1.${curr}`,
+            avaible: getRandomInt(2) % 2 === 0,
+            dispositions: `${getRandomInt(5)}+kk`,
+            area: `${getRandomInt(100)},2 m2`,
+          },
+        };
+      }, {});
+
+      const data = {
+        apartment: {
+          ...apartmentData,
+        },
+        floors: floorData[buildingType],
+      };
+
+      window.data = data;
     </script>
     <script type="text/javascript" src="./public/js/lib.js" defer></script>
     <script type="module" src="./public/js/pages/apartment.js"></script>

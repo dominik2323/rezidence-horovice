@@ -7,7 +7,7 @@ function apartmentsOnClick(e, emittor) {
     console.log({
       buildingId: params.building,
       floorId: params.floor,
-      apartmentId: emittor.id,
+      apartmentId: emittor.dataset.name,
     });
   }
 }
