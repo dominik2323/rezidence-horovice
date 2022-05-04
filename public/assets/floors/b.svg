@@ -1,19 +1,19 @@
 <svg id="Isolation_Mode" data-name="Isolation Mode" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
   
     <g id="_1np" data-name="1np">
-      <polygon id="emittor" points="959.223 894.654 124.73 894.654 124.73 761.676 959.223 761.676 959.223 812.056 959.223 894.654" fill="#dddc00" opacity="0.7"/>
+      <polygon id="emittor" points="959.223 894.654 124.73 894.654 124.73 761.676 959.223 761.676 959.223 812.056 959.223 894.654" fill="#d8c19e" opacity="0.7"/>
     </g>
     <g id="_2np" data-name="2np">
-      <polygon id="emittor-2" data-name="emittor" points="959.223 761.676 124.73 761.676 124.73 628.697 959.223 628.697 959.223 695.186 959.223 761.676" fill="#dddc00" opacity="0.7"/>
+      <polygon id="emittor-2" data-name="emittor" points="959.223 761.676 124.73 761.676 124.73 628.697 959.223 628.697 959.223 695.186 959.223 761.676" fill="#d8c19e" opacity="0.7"/>
     </g>
     <g id="_3np" data-name="3np">
-      <polygon id="emittor-3" data-name="emittor" points="959.223 628.697 124.73 628.697 124.73 495.719 959.223 495.719 959.223 562.208 959.223 628.697" fill="#dddc00" opacity="0.7"/>
+      <polygon id="emittor-3" data-name="emittor" points="959.223 628.697 124.73 628.697 124.73 495.719 959.223 495.719 959.223 562.208 959.223 628.697" fill="#d8c19e" opacity="0.7"/>
     </g>
     <g id="_4np" data-name="4np">
-      <polygon id="emittor-4" data-name="emittor" points="959.223 495.719 124.73 495.719 124.73 362.74 959.223 362.74 959.223 429.229 959.223 495.719" fill="#dddc00" opacity="0.7"/>
+      <polygon id="emittor-4" data-name="emittor" points="959.223 495.719 124.73 495.719 124.73 362.74 959.223 362.74 959.223 429.229 959.223 495.719" fill="#d8c19e" opacity="0.7"/>
     </g>
     <g id="_5np" data-name="5np">
-      <polygon id="emittor-5" data-name="emittor" points="959.223 362.74 124.73 362.74 124.73 221.297 959.223 221.297 959.223 292.019 959.223 362.74" fill="#dddc00" opacity="0.7"/>
+      <polygon id="emittor-5" data-name="emittor" points="959.223 362.74 124.73 362.74 124.73 221.297 959.223 221.297 959.223 292.019 959.223 362.74" fill="#d8c19e" opacity="0.7"/>
     </g>
     <rect width="1080" height="1080" fill="none"/>
   

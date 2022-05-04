@@ -1,7 +1,7 @@
-<svg id="Group_76" data-name="Group 76" xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">
-  <circle id="Ellipse_6" data-name="Ellipse 6" cx="27" cy="27" r="27" transform="translate(0)" fill="rgba(221,220,0,0.27)"/>
-  <circle id="Ellipse_7" data-name="Ellipse 7" cx="15" cy="15" r="15" transform="translate(12 12)" fill="#dddc00"/>
-  <g id="Group_70" data-name="Group 70" transform="translate(52.184 38.879) rotate(135)">
-    <path id="Path_105" data-name="Path 105" d="M19.39,14.325,11.8,27.173a2.434,2.434,0,0,1-3.97,0L.231,14.325c-.818-1.384.668-2.936,2.481-2.59l4.476.853V2.173A2.43,2.43,0,0,1,9.81,0a2.43,2.43,0,0,1,2.623,2.173V12.589l4.476-.853c1.813-.346,3.3,1.206,2.481,2.59" transform="translate(0 0)" stroke="#fff" stroke-width="1"/>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 54">
+  <circle id="Ellipse_6" data-name="Ellipse 6" cx="27" cy="27" r="27" fill="#756956"/>
+  <circle id="Ellipse_7" data-name="Ellipse 7" cx="27" cy="27" r="15" fill="#d8c19e"/>
+  <g id="Group_70" data-name="Group 70">
+    <path id="Path_105" data-name="Path 105" d="M211.47293,312.65405l-3.718-14.45185a2.434,2.434,0,0,1,2.80721-2.80722l14.45821,3.71161c1.55705.40022,1.60372,2.54841.07708,3.58574l-3.76817,2.56184,7.36451,7.36452a2.669,2.669,0,0,1-3.70877,3.70878l-7.36523-7.36523-2.56184,3.76817c-1.03733,1.52665-3.18623,1.48068-3.58574-.07707" transform="translate(-183.12903 -270.19355)" stroke="#fff" stroke-width="1"/>
   </g>
 </svg>
