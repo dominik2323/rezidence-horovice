@@ -1,25 +1,25 @@
 <svg id="Isolation_Mode" data-name="Isolation Mode" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
   
     <g id="_1pp" data-name="1pp">
-      <polygon id="emittor" points="957.247 981.722 122.99 981.722 122.753 894.654 957.247 894.654 957.247 981.722" fill="#d8c19e" opacity="0.7"/>
+      <polygon id="emittor" points="957.247 981.722 122.99 981.722 122.753 894.654 957.247 894.654 957.247 981.722" fill="#d1b68c" opacity="0.7"/>
     </g>
     <g id="_1np" data-name="1np">
-      <polygon id="emittor-2" data-name="emittor" points="957.247 894.654 122.753 894.654 122.99 761.676 957.247 761.676 957.247 894.654" fill="#d8c19e" opacity="0.7"/>
+      <polygon id="emittor-2" data-name="emittor" points="957.247 894.654 122.753 894.654 122.99 761.676 957.247 761.676 957.247 894.654" fill="#d1b68c" opacity="0.7"/>
     </g>
     <g id="_2np" data-name="2np">
-      <polygon id="emittor-3" data-name="emittor" points="957.247 761.676 122.99 761.676 122.753 628.697 957.247 628.697 957.247 761.676" fill="#d8c19e" opacity="0.7"/>
+      <polygon id="emittor-3" data-name="emittor" points="957.247 761.676 122.99 761.676 122.753 628.697 957.247 628.697 957.247 761.676" fill="#d1b68c" opacity="0.7"/>
     </g>
     <g id="_3np" data-name="3np">
-      <polygon id="emittor-4" data-name="emittor" points="957.247 628.697 122.753 628.697 122.99 495.719 957.247 495.719 957.247 628.697" fill="#d8c19e" opacity="0.7"/>
+      <polygon id="emittor-4" data-name="emittor" points="957.247 628.697 122.753 628.697 122.99 495.719 957.247 495.719 957.247 628.697" fill="#d1b68c" opacity="0.7"/>
     </g>
     <g id="_4np" data-name="4np">
-      <polygon id="emittor-5" data-name="emittor" points="957.247 495.719 122.99 495.719 122.753 362.74 957.247 362.74 957.247 495.719" fill="#d8c19e" opacity="0.7"/>
+      <polygon id="emittor-5" data-name="emittor" points="957.247 495.719 122.99 495.719 122.753 362.74 957.247 362.74 957.247 495.719" fill="#d1b68c" opacity="0.7"/>
     </g>
     <g id="_5np" data-name="5np">
-      <polygon id="emittor-6" data-name="emittor" points="957.247 362.74 122.753 362.74 122.99 229.761 957.247 229.761 957.247 362.74" fill="#d8c19e" opacity="0.7"/>
+      <polygon id="emittor-6" data-name="emittor" points="957.247 362.74 122.753 362.74 122.99 229.761 957.247 229.761 957.247 362.74" fill="#d1b68c" opacity="0.7"/>
     </g>
     <g id="_6np" data-name="6np">
-      <polygon id="emittor-7" data-name="emittor" points="957.247 229.761 122.753 229.761 122.99 96.783 957.247 96.783 957.247 229.761" fill="#d8c19e" opacity="0.7"/>
+      <polygon id="emittor-7" data-name="emittor" points="957.247 229.761 122.753 229.761 122.99 96.783 957.247 96.783 957.247 229.761" fill="#d1b68c" opacity="0.7"/>
     </g>
     <rect width="1080" height="1080" fill="none"/>
   

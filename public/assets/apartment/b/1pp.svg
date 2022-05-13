@@ -1,9 +1,9 @@
 <svg id="A_6NP" data-name="A/6NP" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1340 920">
   <g id="_02" data-name="02">
-    <polygon id="emittor" points="729.549 634.523 1023.945 634.523 1023.945 393.085 925.149 393.085 925.149 390.835 729.653 390.835 729.549 634.523" fill="#d8c19e" opacity="0.45"/>
+    <polygon id="emittor" points="729.549 634.523 1023.945 634.523 1023.945 393.085 925.149 393.085 925.149 390.835 729.653 390.835 729.549 634.523" fill="#d1b68c" opacity="0.45"/>
   </g>
   <g id="_01" data-name="01">
-    <polygon id="emittor-2" data-name="emittor" points="1023.945 153.147 729.653 153.147 729.653 396.835 925.149 396.835 925.096 394.585 1023.945 394.585 1023.945 153.147" fill="#d8c19e" opacity="0.45"/>
+    <polygon id="emittor-2" data-name="emittor" points="1023.945 153.147 729.653 153.147 729.653 396.835 925.149 396.835 925.096 394.585 1023.945 394.585 1023.945 153.147" fill="#d1b68c" opacity="0.45"/>
   </g>
   <rect width="1340" height="920" fill="none"/>
 </svg>
