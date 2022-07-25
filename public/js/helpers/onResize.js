@@ -1,4 +1,4 @@
-function onResize() {
+function handleResize() {
   const labels = document.querySelectorAll("[data-label-to]");
   labels.forEach((label) => {
     const emittor = document.querySelector(
@@ -13,3 +13,5 @@ function onResize() {
     });
   });
 }
+
+window.handleResize = handleResize;

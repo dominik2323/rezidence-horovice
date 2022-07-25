@@ -1,8 +1,7 @@
 import getUrlParams from "../../helpers/getUrlParams.js";
 
-const params = getUrlParams();
-
 function floorOnClick(e, emittor) {
+  const params = getUrlParams();
   if (!emittor.hasAttribute("data-emittor-inactive")) {
     window.history.pushState(
       {},

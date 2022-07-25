@@ -21,11 +21,7 @@
     <script type="module" src="./public/js/pages/floors.js" defer></script>
     <script type="module" src="./public/js/pages/apartment.js" defer></script>
     <script src="./public/js/helpers/handleBackButton.js" defer></script>
-    <script
-      type="text/javascript"
-      src="./public/js/helpers/onResize.js"
-      defer
-    ></script>
+    <script src="./public/js/helpers/onResize.js" defer></script>
     <script>
       function fetchData() {
         fetch(`https://www.residenceuskolky.cz/graphql`, {
@@ -142,6 +138,8 @@
         router();
       });
       addEventListener("dataloaded", router);
+      console.log(window.handleResize);
+      addEventListener("resize", () => window.handleResize());
       fetchData();
     </script>
   </body>
