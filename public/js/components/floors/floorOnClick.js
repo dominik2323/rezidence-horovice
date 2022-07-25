@@ -4,7 +4,12 @@ const params = getUrlParams();
 
 function floorOnClick(e, emittor) {
   if (!emittor.hasAttribute("data-emittor-inactive")) {
-    window.location = `${window.location.origin}/apartment.html?building=${params.building}&floor=${emittor.dataset.name}`;
+    window.history.pushState(
+      {},
+      ``,
+      `${window.location.origin}/?building=${params.building}&floor=${emittor.dataset.name}`
+    );
+    window.dispatchEvent(new Event("locationchange"));
   }
 }
 

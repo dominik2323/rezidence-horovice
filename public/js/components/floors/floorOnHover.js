@@ -4,13 +4,19 @@ import {
   DEFAULT_EMITTOR,
 } from "../../consts/selectors.js";
 import strings from "../../consts/strings.js";
+import getUrlParams from "../../helpers/getUrlParams.js";
 
 function floorOnHover(hovering, e, emittor) {
   const id = emittor.dataset.name;
+  const params = getUrlParams();
+  if (!Object.keys(data[params.building].floors).includes(id)) {
+    return;
+  }
+
   const container = this.containerElement;
   const label = document.querySelector(`[data-label-to="${id}"]`);
   const sbHover = container.querySelector("[data-sb-anim]");
-  const avaibleApartments = data.floors[id].avaible;
+  const avaibleApartments = data[params.building].floors[id].avaible;
 
   sbHover.querySelector(SB_HOVER_CONTENT).innerHTML =
     strings.avaibleApartments(avaibleApartments);

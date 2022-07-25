@@ -15,59 +15,134 @@
     />
   </head>
   <body>
-    <div class="hero aerial">
-      <div class="claim-wrapper">
-        <h1 class="main-header">Vyberte si jeden z našich domů</h1>
-      </div>
-      <div class="interactive-el">
-        <div
-          class="interactive-el__inner"
-          data-interactive-container
-          data-interactive-container-aerial
-        >
-          <div class="sb">
-            <div class="sb__anim" data-sb-anim>
-              <div class="sb__anim__inner">
-                <img src="public/assets/hover-icon.svg" alt="" />
-                <span data-sb-default-content></span>
-              </div>
-              <div class="sb__anim__inner">
-                <div data-sb-hover>
-                  <span class="main" data-sb-hover-main></span>
-                  <span class="content" data-sb-hover-content></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      const data = {
-        aerial: {
-          a1: { displayName: "A1", avaible: 8 },
-          a2: { displayName: "A2", avaible: 10 },
-          a3: { displayName: "A3", avaible: 0 },
-          b1: { displayName: "B1", avaible: 4 },
-          b2: { displayName: "B2", avaible: 30 },
-          b3: { displayName: "B3", avaible: 99 },
-          b4: { displayName: "B4", avaible: 3 },
-          b5: { displayName: "B5", avaible: 0 },
-        },
-      };
-    </script>
+    <script></script>
     <script type="text/javascript" src="./public/js/lib.js" defer></script>
     <script type="module" src="./public/js/pages/aerial.js" defer></script>
+    <script type="module" src="./public/js/pages/floors.js" defer></script>
+    <script type="module" src="./public/js/pages/apartment.js" defer></script>
+    <script src="./public/js/helpers/handleBackButton.js" defer></script>
     <script
       type="text/javascript"
       src="./public/js/helpers/onResize.js"
       defer
     ></script>
     <script>
-      addEventListener("DOMContentLoaded", (event) => {
-        window.onresize = onResize;
-        interactiveData.forEach(window.initInteractive);
+      function fetchData() {
+        fetch(`https://www.residenceuskolky.cz/graphql`, {
+          method: `POST`,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            query: `
+                query Nodes {
+                  posts {
+                    nodes {
+                      slug
+                      tags {
+                        nodes {
+                          name
+                          slug
+                        }
+                      }
+                      title
+                      uri
+                    }
+                  }
+                }`,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            const formattedData = data.data.posts.nodes.reduce(
+              (acc, curr, i) => {
+                const [buildingName, appartmentId] = curr.title.split(`.`);
+                const buildingKey = buildingName.toLowerCase();
+                const buildingType = buildingKey[0];
+                const floorKey =
+                  appartmentId[0] === "1" && buildingType === "b"
+                    ? `${appartmentId[0]}pp`
+                    : `${appartmentId[0]}np`;
+                return {
+                  ...acc,
+                  [buildingKey]: {
+                    displayName: buildingName,
+                    floors: {
+                      ...acc[buildingKey]?.floors,
+                      [floorKey]: {
+                        displayName: floorKey.toUpperCase(),
+                        avaible: acc[buildingKey]?.floors[floorKey]
+                          ? acc[buildingKey]?.floors[floorKey].avaible + 1
+                          : 1,
+                        apartments: {
+                          ...acc[buildingKey]?.floors[floorKey]?.apartments,
+                          [appartmentId]: {
+                            displayName: curr.title,
+                            avaible: curr.tags.nodes
+                              .map((tag) => tag.slug)
+                              .some((tag) => tag === "volny"),
+                          },
+                        },
+                      },
+                    },
+                    avaible: i + 1,
+                  },
+                };
+              },
+              {}
+            );
+            window.data = formattedData;
+            window.dispatchEvent(new Event("dataloaded"));
+          });
+      }
+
+      function parseQuery() {
+        const search = window.location.search;
+        if (search.length === 0) return {};
+        return search
+          .slice(1)
+          .split("&")
+          .reduce((acc, curr) => {
+            const currQuery = curr.split("=");
+            return { ...acc, [currQuery[0]]: currQuery[1] };
+          }, {});
+      }
+
+      function router() {
+        function parseMarkup(markup) {
+          const body = document.querySelector("body");
+          const parsedDocument = parser.parseFromString(markup, "text/html");
+          body.prepend(parsedDocument.body.firstChild);
+        }
+
+        const query = parseQuery();
+        const page = Object.keys(query).join("/");
+        const parser = new DOMParser();
+        if (page === "") {
+          parseMarkup(aerialMarkup);
+          const getAerialData = aerialData();
+          getAerialData.forEach(window.initInteractive);
+        }
+        if (page === "building") {
+          parseMarkup(floorsMarkup);
+          handleBackButton();
+          const data = floorsData();
+          data.forEach(window.initInteractive);
+        }
+        if (page === "building/floor") {
+          parseMarkup(apartmentMarkup);
+          handleBackButton();
+          const data = apartmentData();
+          data.forEach(window.initInteractive);
+        }
+      }
+
+      addEventListener("locationchange", () => {
+        document.querySelector("body").innerHTML = "";
+        router();
       });
+      addEventListener("dataloaded", router);
+      fetchData();
     </script>
   </body>
 </html>

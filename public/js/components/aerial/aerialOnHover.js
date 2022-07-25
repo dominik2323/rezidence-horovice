@@ -8,7 +8,10 @@ import strings from "../../consts/strings.js";
 
 function aerialOnHover(hovering, e, emittor) {
   const id = emittor.dataset.name;
-  const { displayName, avaible } = data.aerial[id];
+  if (!Object.keys(data).includes(id)) {
+    return;
+  }
+  const { displayName, avaible } = data[id];
   const container = this.containerElement;
   const sbNumber = container.querySelector(SB_HOVER_MAIN);
   const sbContent = container.querySelector(SB_HOVER_CONTENT);
@@ -38,7 +41,7 @@ function aerialOnHover(hovering, e, emittor) {
   }
 
   if (!hovering && this.defaultHoverId) {
-    const defaultEmittorData = data.aerial[this.defaultHoverId];
+    const defaultEmittorData = data[this.defaultHoverId];
 
     setStyleTo(defaultEmittor, {
       opacity: "1",

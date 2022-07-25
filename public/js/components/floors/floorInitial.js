@@ -4,15 +4,22 @@ import {
   SB_HOVER_CONTENT,
 } from "../../consts/selectors.js";
 import strings from "../../consts/strings.js";
+import getUrlParams from "../../helpers/getUrlParams.js";
 
 function floorInitial(emittor) {
   const id = emittor.dataset.name;
+  const params = getUrlParams();
+  if (!Object.keys(data[params.building].floors).includes(id)) {
+    emittor.setAttribute("data-emittor-inactive", "");
+    return;
+  }
+
   const container = this.containerElement;
   const sbDefaultContent = container.querySelector(SB_DEFAULT_CONTENT);
   const objLabel = document.createElement("div");
   const pos = emittor.getBoundingClientRect();
   const parentPos = emittor.parentElement.getBoundingClientRect();
-  const { avaible, displayName } = data.floors[id];
+  const { avaible, displayName } = data[params.building].floors[id];
   const isDefaultEmittor = this.defaultHoverId === id;
 
   if (!this.defaultHoverId) {

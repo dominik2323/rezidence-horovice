@@ -7,9 +7,15 @@ import strings from "../../consts/strings.js";
 
 function aerialInitial(emittor) {
   const id = emittor.dataset.name;
-  const { avaible, displayName } = data.aerial[id];
-  const label = document.createElement("div");
   const polygon = emittor.querySelector("polygon");
+  const inactiveEmittor = () =>
+    emittor.setAttribute("data-emittor-inactive", "");
+  if (!Object.keys(data).includes(id)) {
+    inactiveEmittor();
+    return;
+  }
+  const { avaible, displayName } = data[id];
+  const label = document.createElement("div");
   const pos = polygon.getBoundingClientRect();
   const container = this.containerElement;
   const parentPos = emittor.parentElement.getBoundingClientRect();
@@ -29,7 +35,7 @@ function aerialInitial(emittor) {
   container.append(label);
 
   if (avaible === 0) {
-    emittor.setAttribute("data-emittor-inactive", "");
+    inactiveEmittor();
   }
 
   setStyleTo(emittor, {
