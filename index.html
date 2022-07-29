@@ -55,10 +55,7 @@
                 const [buildingName, appartmentId] = curr.title.split(`.`);
                 const buildingKey = buildingName.toLowerCase();
                 const buildingType = buildingKey[0];
-                const floorKey =
-                  appartmentId[0] === "1" && buildingType === "b"
-                    ? `${appartmentId[0]}pp`
-                    : `${appartmentId[0]}np`;
+                const floorKey = appartmentId[0];
                 return {
                   ...acc,
                   [buildingKey]: {
@@ -66,13 +63,22 @@
                     floors: {
                       ...acc[buildingKey]?.floors,
                       [floorKey]: {
-                        displayName: floorKey.toUpperCase(),
+                        displayName:
+                          Number(floorKey) === 0 ? `1PP` : `${floorKey}NP`,
                         avaible: acc[buildingKey]?.floors[floorKey]
                           ? acc[buildingKey]?.floors[floorKey].avaible + 1
                           : 1,
                         apartments: {
                           ...acc[buildingKey]?.floors[floorKey]?.apartments,
                           [appartmentId]: {
+                            area:
+                              curr.tags.nodes.find((tag) =>
+                                tag.name.match(/\d+(.\d)?m²/g)
+                              )?.name || ``,
+                            dispositions:
+                              curr.tags.nodes.find((tag) =>
+                                tag.name.match(/\d\+(kk|\d)/gi)
+                              )?.name || ``,
                             displayName: curr.title,
                             avaible: curr.tags.nodes
                               .map((tag) => tag.slug)
@@ -138,7 +144,6 @@
         router();
       });
       addEventListener("dataloaded", router);
-      console.log(window.handleResize);
       addEventListener("resize", () => window.handleResize());
       fetchData();
     </script>
