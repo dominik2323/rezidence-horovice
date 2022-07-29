@@ -163,10 +163,6 @@ h1.main-header {
   font-weight: bold;
 }
 
-.sb__anim__inner .main.header {
-  /* width: auto; height: auto; */
-}
-
 .obj-label {
   position: absolute;
   background-color: white;
