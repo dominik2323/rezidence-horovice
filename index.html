@@ -15,6 +15,7 @@
     />
   </head>
   <body>
+    <div id="root"></div>
     <script type="text/javascript" src="./public/js/lib.js" defer></script>
     <script type="module" src="./public/js/pages/aerial.js" defer></script>
     <script type="module" src="./public/js/pages/floors.js" defer></script>
@@ -111,9 +112,10 @@
 
       function router() {
         function parseMarkup(markup) {
-          const body = document.querySelector("body");
+          const root = document.querySelector("#root");
+          root.innerHTML = "";
           const parsedDocument = parser.parseFromString(markup, "text/html");
-          body.prepend(parsedDocument.body.firstChild);
+          root.prepend(parsedDocument.body.firstChild);
         }
 
         const query = parseQuery();
@@ -139,7 +141,6 @@
       }
 
       addEventListener("locationchange", () => {
-        document.querySelector("body").innerHTML = "";
         router();
       });
       addEventListener("dataloaded", router);
