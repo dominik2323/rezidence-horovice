@@ -32,7 +32,7 @@
           body: JSON.stringify({
             query: `
                 query Nodes {
-                  posts {
+                  posts(first: 1000) {
                     nodes {
                       slug
                       tags {
@@ -87,12 +87,15 @@
                         },
                       },
                     },
-                    avaible: i + 1,
+                    avaible: acc[buildingKey]?.avaible
+                      ? acc[buildingKey].avaible + 1
+                      : 1,
                   },
                 };
               },
               {}
             );
+            console.log(formattedData, data);
             window.data = formattedData;
             window.dispatchEvent(new Event("dataloaded"));
           });
