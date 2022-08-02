@@ -41,8 +41,8 @@ function createBackplate(src: string) {
 }
 
 async function createSvg(url: string) {
-  const apiUrl = window.location.origin + "/" + url;
-  const res = await fetch(apiUrl);
+  // const apiUrl = window.location.origin + "/" + url;
+  const res = await fetch(url);
   const svgString = await res.text();
   const parser = new DOMParser();
   const svgElement = parser.parseFromString(svgString, "text/html");

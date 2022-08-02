@@ -1,6 +1,7 @@
 import apartments from "../components/apartments/index.js";
 import floors from "../components/floors/index.js";
 import getUrlParams from "../helpers/getUrlParams.js";
+import { assetUrl } from "../helpers/consts.js";
 
 const apartmentMarkup = `
 <div class="hero apartments">
@@ -25,7 +26,7 @@ const apartmentMarkup = `
   </div>
   <div class="claim-wrapper">
     <span class="back" data-back-button="/floors.html">
-      <img src="public/assets/arrow-back.svg" alt="" />
+      <img src="${assetUrl}/public/assets/arrow-back.svg" alt="" />
       <span>Výběr patra</span>
     </span>
     <h1 class="main-header">Vyberte si<br />byt na patře</h1>
@@ -41,7 +42,7 @@ const apartmentMarkup = `
     <div class="sb">
       <div class="sb__anim" data-sb-anim>
         <div class="sb__anim__inner">
-          <img src="public/assets/hover-icon.svg" alt="" />
+          <img src="${assetUrl}/public/assets/hover-icon.svg" alt="" />
           <span data-sb-default-content></span>
         </div>
         <div class="sb__anim__inner">
@@ -68,9 +69,9 @@ const apartmentData = () => {
       containerElement: document.querySelector(
         "[data-interactive-container-apartment]"
       ),
-      backplateUrl: `/public/assets/apartment/${buildingType}/backplate-${floor}.svg`,
+      backplateUrl: `${assetUrl}/public/assets/apartment/${buildingType}/backplate-${floor}.svg`,
       defaultHoverId: null,
-      svgUrl: `public/assets/apartment/${buildingType}/${floor}.svg`,
+      svgUrl: `${assetUrl}/public/assets/apartment/${buildingType}/${floor}.svg`,
       initial: apartments.apartmentsInitial,
       onHover: apartments.apartmentsOnHover,
       onClick: apartments.apartmentsOnClick,
@@ -79,8 +80,8 @@ const apartmentData = () => {
       containerElement: document.querySelector(
         "[data-interactive-container-floors]"
       ),
-      backplateUrl: `/public/assets/floors/${buildingType}.png`,
-      svgUrl: `public/assets/floors/${buildingType}.svg`,
+      backplateUrl: `${assetUrl}/public/assets/floors/${buildingType}.png`,
+      svgUrl: `${assetUrl}/public/assets/floors/${buildingType}.svg`,
       defaultHoverId: params.floor,
       initial: floors.floorInitial,
       onHover: floors.floorOnHover,

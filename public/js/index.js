@@ -73,7 +73,6 @@ function fetchData() {
           },
         };
       }, {});
-      console.log(formattedData, data);
       window.data = formattedData;
       window.dispatchEvent(new Event("dataloaded"));
     });

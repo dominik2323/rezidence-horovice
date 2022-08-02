@@ -1,12 +1,13 @@
 import aerial from "../components/aerial/index.js";
+import { assetUrl } from "../helpers/consts.js";
 
 const aerialData = () => [
   {
     containerElement: document.querySelector(
       "[data-interactive-container-aerial]"
     ),
-    backplateUrl: "/public/assets/aerial/aerial-bg.png",
-    svgUrl: `public/assets/aerial/aerial.svg`,
+    backplateUrl: `${assetUrl}/public/assets/aerial/aerial-bg.png`,
+    svgUrl: `${assetUrl}/public/assets/aerial/aerial.svg`,
     defaultHoverId: null,
     initial: aerial.aerialInitial,
     onHover: aerial.aerialOnHover,
@@ -28,7 +29,7 @@ const aerialMarkup = `
     <div class="sb">
       <div class="sb__anim" data-sb-anim>
         <div class="sb__anim__inner">
-          <img src="public/assets/hover-icon.svg" alt="" />
+          <img src="${assetUrl}/public/assets/hover-icon.svg" alt="" />
           <span data-sb-default-content></span>
         </div>
         <div class="sb__anim__inner">

@@ -1,6 +1,7 @@
 import floors from "../components/floors/index.js";
 import aerial from "../components/aerial/index.js";
 import getUrlParams from "../helpers/getUrlParams.js";
+import { assetUrl } from "../helpers/consts.js";
 
 const floorsMarkup = `
 <div class="hero floors">
@@ -25,7 +26,7 @@ const floorsMarkup = `
   </div>
   <div class="claim-wrapper">
     <span class="back" data-back-button="/">
-      <img src="public/assets/arrow-back.svg" alt="" />
+      <img src="${assetUrl}/public/assets/arrow-back.svg" alt="" />
       <span>Výběr domu</span>
     </span>
     <h1 class="main-header">Vyberte si<br />podlaží</h1>
@@ -40,7 +41,7 @@ const floorsMarkup = `
     <div class="sb">
       <div class="sb__anim" data-sb-anim>
         <div class="sb__anim__inner">
-          <img src="public/assets/hover-icon.svg" alt="" />
+          <img src="${assetUrl}/public/assets/hover-icon.svg" alt="" />
           <span data-sb-default-content></span>
         </div>
         <div class="sb__anim__inner">
@@ -66,8 +67,8 @@ const floorsData = () => {
       containerElement: document.querySelector(
         "[data-interactive-container-aerial]"
       ),
-      backplateUrl: "/public/assets/aerial/aerial-bg.png",
-      svgUrl: `public/assets/aerial/aerial.svg`,
+      backplateUrl: `${assetUrl}/public/assets/aerial/aerial-bg.png`,
+      svgUrl: `${assetUrl}/public/assets/aerial/aerial.svg`,
       defaultHoverId: params.building,
       initial: aerial.aerialInitial,
       onClick: aerial.aerialOnClick,
@@ -77,8 +78,8 @@ const floorsData = () => {
       containerElement: document.querySelector(
         "[data-interactive-container-floors]"
       ),
-      backplateUrl: `/public/assets/floors/${buildingType}.png`,
-      svgUrl: `public/assets/floors/${buildingType}.svg`,
+      backplateUrl: `${assetUrl}/public/assets/floors/${buildingType}.png`,
+      svgUrl: `${assetUrl}/public/assets/floors/${buildingType}.svg`,
       defaultHoverId: null,
       initial: floors.floorInitial,
       onClick: floors.floorOnClick,
